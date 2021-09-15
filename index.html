@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- frontAwesome cdn  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <title>Rating</title>
+</head>
+
+<body>
+    <main style="height:91vh">
+        <section>
+            <div style="text-align: center">
+                <div>
+                    <div>
+                        <h1 style="color:#850000" id="error"></h1>
+                    </div>
+                    <input type="number" name="rating"  id="rating">
+                    <button type="button" id="ratingButton">Add Rating</button>
+                </div>
+                <div style="width: 30%;margin: 0 auto;background-color: #0e0505f5;color:#ffffff; border-radius:10px">
+                    <h3  style="padding: 10px;">Your Dynamic Start Rating</h3>
+                    <h4 style="width: 100%;margin: 0 auto;">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Consequatur officiis corporis neque, ab modi libero exercitationem unde? Animi incidunt aliquid quia quae sapiente minima nemo cum temporibus sunt. Veniam possimus ut vitae nihil consequatur dignissimos id perferendis, nam natus suscipit?</h4>
+                    <p style="color:#eec718;height: 30px;" id="rating-box">
+
+                    </p>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer style="text-align: center;margin: 0 auto; background-color: #180b0b;height:30px; color:#ffffff;padding: 5px;">All Rights Reserved <span id="footer"></span> </footer>
+    <script>
+
+        const ratingButton = document.getElementById("ratingButton");
+        ratingButton.addEventListener('click',()=>{
+            const rating = document.getElementById('rating').value;
+            const ratingOfNum = parseFloat(rating);
+            handleRating(ratingOfNum);
+            document.getElementById('rating').value=" ";
+        })
+
+        const handleRating = ( rating ) =>
+        {
+            if(rating <= 5){
+                const ratingBox = document.getElementById("rating-box");
+                ratingBox.innerHTML =`
+                <span> <i class="${rating >=1
+                    ? "fa fa-star"
+                    : rating >= 0.5
+                    ? "fa fa-star-half-o"
+                    : "fa fa-star-o"}"
+                ></i> </span>
+                <span> <i class="${rating >=2
+                    ? "fa fa-star"
+                    : rating >= 1.5
+                    ? "fa fa-star-half-o"
+                    : "fa fa-star-o"}"
+                ></i> </span>
+                <span> <i class="${rating >=3
+                    ? "fa fa-star"
+                    : rating >= 2.5
+                    ? "fa fa-star-half-o"
+                    : "fa fa-star-o"}"
+                ></i> </span>
+                <span> <i class="${ rating >=4
+                    ? "fa fa-star"
+                    : rating >= 3.5
+                    ? "fa fa-star-half-o"
+                    : "fa fa-star-o"}"
+                ></i> </span>
+                <span> <i class="${ rating >=5
+                    ? "fa fa-star"
+                    : rating >= 4.5
+                    ? "fa fa-star-half-o"
+                    : "fa fa-star-o"}"
+                ></i> </span> <span style="color:green;">${rating} Star Rating You Give (:_:)</span>
+
+                `;
+            }else{
+                document.getElementById('error').innerText="Please type number 1 to 5";
+                document.getElementById("rating-box").innerHTML=" ";
+                setTimeout(() => {
+                document.getElementById('error').innerText=" ";
+                }, 3000);
+            }
+        }
+
+        document.getElementById("footer").innerHTML= `${new Date().getFullYear()} ${new Date().getDay()===0?"Monday":new Date().getDay()===1?"Tuesday":new Date().getDay()===2?"Wednesday":new Date().getDay()===3?"Thursday":new Date().getDay()===4?"Friday":new Date().getDay()===5?"Saturday":new Date().getDay()===6?"Sunday":"day is coming!!!"} ${new Date().getDate()+1} ${new Date().getMonth()===0?"January":new Date().getMonth()===1?"February":new Date().getMonth()===2?"March":new Date().getMonth()===3?"April":new Date().getMonth()===4?"May":new Date().getMonth()===5?"June":new Date().getMonth()===6?"July":new Date().getMonth()===7?"August":new Date().getMonth()===8?"September":new Date().getMonth()===9?"October":new Date().getMonth()===10?"November":new Date().getMonth()===11?"December":""}`;
+    </script>
+
+
+</body>
+
+</html>
