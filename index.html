@@ -9,12 +9,33 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
     <title>Rating</title>
     <style>
-
+        .card-style{
+            width: 30%;
+            margin: 0 auto;
+            background-color: #0e0505f5;
+            color:#ffffff;
+            border-radius:10px;
+        }
+        .card-body{
+           width: 100%;
+           margin: 0 auto;
+        }
+    @media screen and (max-width:768px){
+        .main{
+            height:100vh;
+        }
+        .card-style{
+            width:90%;
+        }
+        .card-body{
+            width:80%;
+        }
+    }
     </style>
 </head>
 
 <body>
-    <main style="height:91vh">
+    <main class="main" style="height:91vh">
         <section>
             <div style="text-align: center">
                 <div>
@@ -24,9 +45,9 @@
                     <input type="number" name="rating"  id="rating">
                     <button type="button" id="ratingButton">Add Rating</button>
                 </div>
-                <div style="width: 30%;margin: 0 auto;background-color: #0e0505f5;color:#ffffff; border-radius:10px">
+                <div class="card-style" >
                     <h3  style="padding: 10px;">Your Dynamic Start Rating</h3>
-                    <h4 style="width: 100%;margin: 0 auto;">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Consequatur officiis corporis neque, ab modi libero exercitationem unde? Animi incidunt aliquid quia quae sapiente minima nemo cum temporibus sunt. Veniam possimus ut vitae nihil consequatur dignissimos id perferendis, nam natus suscipit?</h4>
+                    <h4 class="card-body">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Consequatur officiis corporis neque, ab modi libero exercitationem unde? Animi incidunt aliquid quia quae sapiente minima nemo cum temporibus sunt. Veniam possimus ut vitae nihil consequatur dignissimos id perferendis, nam natus suscipit?</h4>
                     <p style="color:#eec718;height: 30px;" id="rating-box">
 
                     </p>
